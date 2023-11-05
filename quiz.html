@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">
+        <p>1. Which planet is known as the "Red Planet"?</p>
+    </div>
+    <div class="options">
+        <label>
+            <input type="radio" name="q1" value="wrong"> Venus
+        </label>
+        <label>
+            <input type="radio" name="q1" value="wrong"> Earth
+        </label>
+        <label>
+            <input type="radio" name="q1" value="right"> Mars
+        </label>
+    </div>
+    
+    <div class="question">
+        <p>2. What is the largest planet in our solar system?</p>
+    </div>
+    <div class="options">
+        <label>
+            <input type="radio" name="q2" value="right"> Jupiter
+        </label>
+        <label>
+            <input type="radio" name="q2" value="wrong"> Saturn
+        </label>
+        <label>
+            <input type="radio" name="q2" value="wrong"> Uranus
+        </label>
+    </div>
+
+    <div class="question">
+        <p>3. Who was the first human to walk on the moon in 1969?</p>
+    </div>
+    <div class="options">
+        <label>
+            <input type="radio" name="q3" value="wrong"> Alan Shepard
+        </label>
+        <label>
+            <input type="radio" name="q3" value="wrong"> John Glenn
+        </label>
+        <label>
+            <input type="radio" name="q3" value="right"> Neil Armstrong
+        </label>
+    </div>
+
+    <div class="question">
+        <p>4. Which space telescope is famous for its stunning images of distant galaxies and nebulae?</p>
+    </div>
+    <div class="options">
+        <label>
+            <input type="radio" name="q4" value="wrong"> Hubble Space Telescope
+        </label>
+        <label>
+            <input type="radio" name="q4" value="wrong"> Kepler Space Telescope
+        </label>
+        <label>
+            <input type="radio" name="q4" value="right"> Hubble Space Telescope
+        </label>
+    </div>
+
+    <div class="question">
+        <p>5. What causes a solar eclipse?</p>
+    </div>
+    <div class="options">
+        <label>
+            <input type="radio" name="q5" value="wrong"> The moon casting a shadow on the Earth
+        </label>
+        <label>
+            <input type="radio" name="q5" value="wrong"> Earth casting a shadow on the moon
+        </label>
+        <label>
+            <input type="radio" name="q5" value="right"> The moon passing between the Earth and the Sun
+        </label>
+    </div>
+    
+    <button onclick="checkAnswers()">Submit</button>
+    
+    <div class="result" id="quiz-result"></div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: document.querySelector('input[name="q1"]:checked').value,
+                q2: document.querySelector('input[name="q2"]:checked').value,
+                q3: document.querySelector('input[name="q3"]:checked').value,
+                q4: document.querySelector('input[name="q4"]:checked').value,
+                q5: document.querySelector('input[name="q5"]:checked').value
+            };
+
+            let score = 0;
+            for (const answer of Object.values(answers)) {
+                if (answer === 'right') {
+                    score++;
+                }
+            }
+
+            const resultElement = document.getElementById("quiz-result");
+            resultElement.innerHTML = `You got ${score} out of 5 questions right!`;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+    
+ 
